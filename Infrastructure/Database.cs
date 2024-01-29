@@ -13,6 +13,10 @@ namespace Infrastructure
         public Database(DbContextOptions<Database> options) : base(options)
         {
         }
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(ConnectionString);
+        }
 
         // Define DbSet properties for your entities (tables).
         public DbSet<User> Users { get; set; }

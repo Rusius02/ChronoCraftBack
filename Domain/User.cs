@@ -4,35 +4,23 @@ namespace Domain
 {
     public class User
     {
-        private String firstName;
-        private String lastName;
-        private String userName;
-        private MailAddress emailAdress;
-        private String password;
-        private String address;
-        private String? city;
-        private String? postCode;
-        private String? country;
-        private DateTime birthDate;
-        private String? birthCity;
-        private Nationality nationality;
-        private String phoneNumber;
-        private List<Plan> plans;
+        public int Id { get; set; }
 
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string UserName { get => userName; set => userName = value; }
-        public MailAddress EmailAdress { get => emailAdress; set => emailAdress = value; }
-        public string Password { get => password; set => password = value; }
-        public string Adress { get => address; set => address = value; }
-        public string City { get => city; set => city = value; }
-        public string PostCode { get => postCode; set => postCode = value; }
-        public string Country { get => country; set => country = value; }
-        public DateTime BirthDate { get => birthDate; set => birthDate = value; }
-        public string BirthCity { get => birthCity; set => birthCity = value; }
-        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
-        internal Nationality Nationality { get => nationality; set => nationality = value; }
-        internal List<Plan> Plans { get => plans; set => plans = value; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UserName { get; set; }
+        public MailAddress EmailAdress { get  ; set ; }
+        public string Password { get ; set ; }
+        public string Adress { get  ; set ; }
+        public string City { get  ; set ; }
+        public string PostCode { get ; set ; }
+        public string Country { get  ; set ; }
+        public DateTime BirthDate { get  ; set  ; }
+        public string BirthCity { get  ; set ; }
+        public string PhoneNumber { get  ; set ; }
+        public string Sexe { get ; set ; }
+        internal Nationality Nationality { get ; set ; }
+        internal List<Plan> Plans { get ; set ; }
     }
 
     enum Nationality{

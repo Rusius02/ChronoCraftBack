@@ -6,9 +6,9 @@ using Infrastructure.SqlServer.Repository.User;
 using Infrastructure.SqlServer.Utils;
 using NotImplementedException = System.NotImplementedException;
 
-namespace Infrastructure.SqlServer.Repository.Users
+namespace Infrastructure.SqlServer.Repository.User
 {
-    public partial class UsersRepository : IUserRepository
+    public partial class UserRepository : IUserRepository
     {
         private readonly IDomainFactory<Domain.User> _factory = new UserFactory();
 
@@ -40,7 +40,7 @@ namespace Infrastructure.SqlServer.Repository.Users
             //We do a check to see if the Activity exists based on pseudo, mail and password
             foreach (Domain.User u in users)
             {
-                if (u.mail == user.mail && u.pseudo == user.pseudo && u.Password == user.Password)
+                if (u.EmailAdress == user.EmailAdress && u.UserName == user.UserName && u.Password == user.Password)
                 {
                     return null;
                 }
@@ -133,11 +133,17 @@ namespace Infrastructure.SqlServer.Repository.Users
             command.Parameters.AddWithValue("@" + ColId, users.Id);
             command.Parameters.AddWithValue("@" + ColFirstName, users.FirstName);
             command.Parameters.AddWithValue("@" + ColLastName, users.LastName);
-            command.Parameters.AddWithValue("@" + ColSexe, users.sexe);
-            command.Parameters.AddWithValue("@" + ColBirthdate, users.BirthDate);
-            command.Parameters.AddWithValue("@" + ColPseudo, users.pseudo);
-            command.Parameters.AddWithValue("@" + ColMail, users.mail);
+            command.Parameters.AddWithValue("@" + ColUserName, users.UserName);         
+            command.Parameters.AddWithValue("@" + ColEmailAddress, users.EmailAdress);
             command.Parameters.AddWithValue("@" + ColPassword, users.Password);
+            command.Parameters.AddWithValue("@" + ColAddress, users.Address);
+            command.Parameters.AddWithValue("@" + ColCity, users.City);
+            command.Parameters.AddWithValue("@" + ColPostcode, users.PostCode);
+            command.Parameters.AddWithValue("@" + ColCountry, users.Country);
+            command.Parameters.AddWithValue("@" + ColBirthdate, users.BirthDate);
+            command.Parameters.AddWithValue("@" + ColBirthcity, users.BirthCity);
+            command.Parameters.AddWithValue("@" + ColPhoneNumber, users.PhoneNumber);
+            command.Parameters.AddWithValue("@" + ColSexe, users.Sexe);
             return command.ExecuteNonQuery() > 0;
         }
 
@@ -156,7 +162,7 @@ namespace Infrastructure.SqlServer.Repository.Users
             };
 
             /*We pass the received data as an argument in our request*/
-            command.Parameters.AddWithValue("@" + ColPseudo, pseudo);
+            command.Parameters.AddWithValue("@" + ColUserName, pseudo);
             command.Parameters.AddWithValue("@" + ColPassword, password);
 
             var reader = command.ExecuteReader(CommandBehavior.CloseConnection);

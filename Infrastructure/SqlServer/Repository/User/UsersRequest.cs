@@ -6,21 +6,26 @@
             ColId = "idUser",
             ColLastName = "last_name",
             ColFirstName = "first_name",
-            ColSexe = "sexe",
-            ColMail = "mail",
-            ColPseudo = "pseudo",
+            ColUserName = "user_name",
+            ColEmailAddress = "email_address",
             ColPassword = "password",
+            ColAddress = "address",
+            ColCity = "city",
+            ColPostcode = "postcode",
+            ColCountry = "country",
             ColBirthdate = "birthdate",
-            ColRole = "role";
+            ColBirthcity = "birthcity",
+            ColPhoneNumber = "phone_number",
+            ColSexe = "sexe";
     
         //We have all our queries here 
         //Create query which creates a database User
         public static readonly string ReqCreate = $@"
         INSERT INTO {TableName}({ColLastName}, {ColFirstName}, 
-        {ColSexe},  {ColBirthdate}, {ColPseudo},{ColMail},{ColPassword})
+        {ColSexe},  {ColBirthdate}, {ColUserName},{ColEmailAddress},{ColPassword})
         OUTPUT INSERTED.{ColId}
         VALUES(@{ColLastName}, @{ColFirstName}, @{ColSexe}, @{ColBirthdate}, 
-        @{ColPseudo}, @{ColMail} ,@{ColPassword})";
+        @{ColUserName}, @{ColEmailAddress} ,@{ColPassword})";
 
         //This is the one that will send us all the User
         public static readonly string ReqGetAll = $@"

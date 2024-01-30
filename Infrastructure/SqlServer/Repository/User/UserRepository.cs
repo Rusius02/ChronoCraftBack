@@ -148,7 +148,7 @@ namespace Infrastructure.SqlServer.Repository.User
         }
 
         //The GetUserByPseudo method will return an activity based on its pseudo and password
-        public Domain.User GetUserByPseudo(string pseudo, string password)
+        public Domain.User GetUserByPseudo(string username, string password)
         {
             /*We connect to our database*/
             using var connection = Database.GetConnection();
@@ -162,7 +162,7 @@ namespace Infrastructure.SqlServer.Repository.User
             };
 
             /*We pass the received data as an argument in our request*/
-            command.Parameters.AddWithValue("@" + ColUserName, pseudo);
+            command.Parameters.AddWithValue("@" + ColUserName, username);
             command.Parameters.AddWithValue("@" + ColPassword, password);
 
             var reader = command.ExecuteReader(CommandBehavior.CloseConnection);

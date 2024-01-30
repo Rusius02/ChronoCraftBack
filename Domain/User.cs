@@ -19,6 +19,7 @@ namespace Domain
         public string BirthCity { get  ; set ; }
         public string PhoneNumber { get  ; set ; }
         public string Sexe { get ; set ; }
+        public string Role { get; set; }
         internal Nationality Nationality { get ; set ; }
         internal List<Plan> Plans { get ; set ; }
     }

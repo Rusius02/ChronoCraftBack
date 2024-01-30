@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Infrastructure.SqlServer.Repository.Users
+namespace Infrastructure.SqlServer.Repository.User
 {
     public class JwtAuthentificationManager: IJwtAuthentificationManager
     {
@@ -16,9 +16,9 @@ namespace Infrastructure.SqlServer.Repository.Users
         {
             this.key = key;
         }
-        public string Authentificate(string pseudo, string password)
+        public string Authentificate(string username, string password)
         {
-            var user = _usersRepository.GetUserByPseudo(pseudo, password);
+            var user = _usersRepository.GetUserByPseudo(username, password);
             if (user==null)
             {
                 return null;
@@ -30,7 +30,7 @@ namespace Infrastructure.SqlServer.Repository.Users
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]{
-                    new Claim(ClaimTypes.Name,pseudo),
+                    new Claim(ClaimTypes.Name,username),
                     new Claim(ClaimTypes.Role, user.Role),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                 }),

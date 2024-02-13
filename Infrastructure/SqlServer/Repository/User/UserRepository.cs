@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Linq;
 using Infrastructure.SqlServer.Repository.User;
 using Infrastructure.SqlServer.Utils;
 using NotImplementedException = System.NotImplementedException;
@@ -27,13 +28,19 @@ namespace Infrastructure.SqlServer.Repository.User
                 CommandText = ReqCreate
             };
             /*We pass the received data as an argument in our request*/
-            command.Parameters.AddWithValue("@" + ColLastName, user.LastName);
             command.Parameters.AddWithValue("@" + ColFirstName, user.FirstName);
-            command.Parameters.AddWithValue("@" + ColSexe, user.Sexe);
-            command.Parameters.AddWithValue("@" + ColBirthdate, user.BirthDate);
-            command.Parameters.AddWithValue("@" + ColPseudo, user.pseudo);
-            command.Parameters.AddWithValue("@" + ColMail, user.mail);
+            command.Parameters.AddWithValue("@" + ColLastName, user.LastName);
+            command.Parameters.AddWithValue("@" + ColUserName, user.UserName);
+            command.Parameters.AddWithValue("@" + ColEmailAddress, user.EmailAdress);
             command.Parameters.AddWithValue("@" + ColPassword, user.Password);
+            command.Parameters.AddWithValue("@" + ColAddress, user.Address);
+            command.Parameters.AddWithValue("@" + ColCity, user.City);
+            command.Parameters.AddWithValue("@" + ColPostcode, user.PostCode);
+            command.Parameters.AddWithValue("@" + ColCountry, user.Country);
+            command.Parameters.AddWithValue("@" + ColBirthdate, user.BirthDate);
+            command.Parameters.AddWithValue("@" + ColBirthcity, user.BirthCity);
+            command.Parameters.AddWithValue("@" + ColPhoneNumber, user.PhoneNumber);
+            command.Parameters.AddWithValue("@" + ColSexe, user.Sexe);
 
 
 

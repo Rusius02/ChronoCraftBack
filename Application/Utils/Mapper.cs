@@ -1,4 +1,6 @@
 ﻿
+using Application.UseCases.Chrono.dto;
+using Application.UseCases.User.dto;
 using AutoMapper;
 using Domain;
 
@@ -19,17 +21,13 @@ namespace Application.Utils
             {
                 // Source, Destination
                         
-                        //Activity
-                        cfg.CreateMap<InputDtoCreateActivity, Activity>();
-                        cfg.CreateMap<Activity, OutputDtoCreateActivity>();
-                        cfg.CreateMap<Activity, OutputDtoListActivity>();
-                        cfg.CreateMap<InputDtoActivity, Activity>();
-                        cfg.CreateMap<InputDtoUpdateActivity, Activity>();
+                        //Users
+                        cfg.CreateMap<InputDtoCreateUser, User>();
+                        cfg.CreateMap<User, OutputDtoCreateUser>();
                         
                         //Sport
-                        cfg.CreateMap<Sport, OutputDtoListSport>();
-                        cfg.CreateMap<InputDtoCreateSport, Sport>();
-                        cfg.CreateMap<Sport, OutputDtoSport>();
+                        cfg.CreateMap<Plan, OutputPlanDto>();
+                        cfg.CreateMap<InputPlanDto, Plan>();
                     
 
             });

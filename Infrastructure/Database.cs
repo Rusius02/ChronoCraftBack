@@ -22,5 +22,11 @@ namespace Infrastructure
         public DbSet<User> Users { get; set; }
         public DbSet<Plan> Plans { get; set; }
         public DbSet<Chrono> Chronos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Plan>().ToTable("Plan");
+            modelBuilder.Entity<Chrono>().ToTable("Chrono");
+        }
     }
 }

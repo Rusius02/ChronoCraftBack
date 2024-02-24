@@ -23,6 +23,7 @@ namespace Application.Utils
                         
                         //Users
                         cfg.CreateMap<InputDtoCreateUser, User>();
+                        cfg.CreateMap<InputDtoUser, User>();
                         cfg.CreateMap<User, OutputDtoCreateUser>();
                         
                         //Sport

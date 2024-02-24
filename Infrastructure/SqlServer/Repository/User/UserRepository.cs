@@ -107,7 +107,7 @@ namespace Infrastructure.SqlServer.Repository.User
         }
 
         //The Delete method deletes an User based on the id
-        public bool Delete(Domain.User users)
+        public bool Delete(Domain.User user)
         {
             /*We connect to our database*/
             using var connection = Database.GetConnection();
@@ -120,7 +120,7 @@ namespace Infrastructure.SqlServer.Repository.User
                 CommandText = ReqDelete
             };
             /*We pass the received data as an argument in our request*/
-            command.Parameters.AddWithValue("@" + ColId, users.Id);
+            command.Parameters.AddWithValue("@" + ColId, user.Id);
             return command.ExecuteNonQuery() > 0;
         }
 

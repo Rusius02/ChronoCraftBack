@@ -45,6 +45,7 @@ namespace WebApi
             //Add use Case
             //User
             services.AddSingleton<UseCaseCreateUser>();
+            services.AddSingleton<UseCaseDeleteUser>();
 
             //Authentication
             var key = "This is my secret Test key";
@@ -65,16 +66,6 @@ namespace WebApi
                 };
             });
             services.AddSingleton<IJwtAuthentificationManager>(new JwtAuthentificationManager(key));
-
-
-            //Sport
-            services.AddSingleton<UseCaseCreateUser>();
-
-            //Activity
-
-
-            //Post
-
            
             services.AddControllers();
 

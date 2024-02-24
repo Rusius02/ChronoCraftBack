@@ -153,6 +153,8 @@ namespace Infrastructure.SqlServer.Repository.User
             command.Parameters.AddWithValue("@" + ColBirthcity, users.BirthCity);
             command.Parameters.AddWithValue("@" + ColPhoneNumber, users.PhoneNumber);
             command.Parameters.AddWithValue("@" + ColSexe, users.Sexe);
+            command.Parameters.AddWithValue("@" + ColRole, users.Role);
+            command.Parameters.AddWithValue("@" + ColNationality, users.Nationality);
             return command.ExecuteNonQuery() > 0;
         }
 

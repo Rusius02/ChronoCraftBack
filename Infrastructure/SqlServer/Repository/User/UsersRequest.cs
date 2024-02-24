@@ -61,7 +61,9 @@
             {ColBirthdate} = @{ColBirthdate},
             {ColBirthcity} = @{ColBirthcity}, 
             {ColPhoneNumber} = @{ColPhoneNumber}, 
-            {ColSexe} = @{ColSexe}
+            {ColSexe} = @{ColSexe},
+            {ColRole} = @{ColRole},
+            {ColNationality} = @{ColNationality}
             WHERE {ColId} = @{ColId}";
         
         //This is the one that will send us all the activities based on Pseudo et Password

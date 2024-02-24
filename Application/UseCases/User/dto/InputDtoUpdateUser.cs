@@ -8,6 +8,7 @@ namespace Application.UseCases.User.dto
 {
     public class InputDtoUpdateUser
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
@@ -22,7 +23,7 @@ namespace Application.UseCases.User.dto
         public string PhoneNumber { get; set; }
         public string Sexe { get; set; }
         public string Role { get; set; }
-        internal Nationality Nationality { get; set; }
+        public Nationality Nationality { get; set; }
     }
 }
 

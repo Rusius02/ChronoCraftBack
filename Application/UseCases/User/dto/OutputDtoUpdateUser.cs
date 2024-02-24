@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.User.dto
 {
-    public class OutputDtoCreateUser
+    public class OutputDtoUpdateUser
     {
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
@@ -23,7 +22,6 @@ namespace Application.UseCases.User.dto
         public string Sexe { get; set; }
         public string Role { get; set; }
         public Nationality Nationality { get; set; }
+
     }
-
 }
-

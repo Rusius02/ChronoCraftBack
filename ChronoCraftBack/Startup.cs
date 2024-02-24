@@ -46,7 +46,7 @@ namespace WebApi
             //User
             services.AddSingleton<UseCaseCreateUser>();
             services.AddSingleton<UseCaseDeleteUser>();
-
+            services.AddSingleton<UseCaseModifyUser>();
             //Authentication
             var key = "This is my secret Test key";
             services.AddAuthentication(x =>

@@ -13,11 +13,13 @@ namespace WebApi.Controllers
     {
         private readonly UseCaseCreateUser _useCaseCreateUser;
         private readonly UseCaseDeleteUser _useCaseDeleteUser;
+        private readonly UseCaseModifyUser _useCaseModifyUser;
 
-        public UserController(UseCaseCreateUser useCaseCreateUser, UseCaseDeleteUser useCaseDeleteUser, IJwtAuthentificationManager jwtAuthentificationManager)
+        public UserController(UseCaseCreateUser useCaseCreateUser, UseCaseDeleteUser useCaseDeleteUser, UseCaseModifyUser useCaseModifyUser, IJwtAuthentificationManager jwtAuthentificationManager)
         {
             _useCaseCreateUser = useCaseCreateUser;
             _useCaseDeleteUser = useCaseDeleteUser;
+            _useCaseModifyUser = useCaseModifyUser;
         }
 
         [HttpPost]
@@ -37,6 +39,17 @@ namespace WebApi.Controllers
              And it will return an OutputDto of Comment.
             And we return the code 201 to notify that the request has been made*/
             return StatusCode(201, _useCaseDeleteUser.Execute(user));
+        }
+
+        [HttpPut]
+        [Route("Modify")]
+        [ProducesResponseType(200)]
+        public ActionResult<bool> Update([FromBody] InputDtoUpdateUser inputDtoUpdateUser)
+        {
+            /*We call the Execute method of our UseCase and give it a Dto.
+             And it will return an OutputDto of User.
+            And we return the code 200 to notify that the request has been made*/
+            return StatusCode(200, _useCaseModifyUser.Execute(inputDtoUpdateUser));
         }
     }
 }

@@ -19,8 +19,7 @@ namespace Application.UseCases.User
             _userRepository = usersRepository;
         }
 
-        /*Method that will create an User using an InputDTO given as an argument
-         and that will return an Activity OutputDto*/
+        
         public OutputDtoCreateUser Execute(InputDtoCreateUser dto)
         {
             var userFromDto = Mapper.GetInstance().Map<Domain.User>(dto);
@@ -29,8 +28,7 @@ namespace Application.UseCases.User
             return Mapper.GetInstance().Map<OutputDtoCreateUser>(userFromDb);
         }
 
-        /*Method that will modify an User using an InputDTO given to it as an argument
-         and that will return a boolean to tell us if it has been modified*/
+        
         public bool Execute(InputDtoUpdateUser dto)
         {
             var userFromDto = Mapper.GetInstance().Map<Domain.User>(dto);

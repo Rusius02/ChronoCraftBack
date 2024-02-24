@@ -2,10 +2,8 @@
 {
     public class Chrono
     {
-        private long id;
-        private Double timeInSecond;
+        public long Id { get; set; }
+        public Double TimeInSecond { get; set; }
 
-        public long Id { get => id; set => id = value; }
-        public double TimeInSecond { get => timeInSecond; set => timeInSecond = value; }
     }
 }

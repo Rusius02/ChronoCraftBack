@@ -3,31 +3,35 @@
     public partial class UserRepository
     {
         public const string TableName = "users",
-            ColId = "idUser",
-            ColLastName = "last_name",
-            ColFirstName = "first_name",
-            ColUserName = "user_name",
-            ColEmailAddress = "email_address",
+            ColId = "id",
+            ColLastName = "lastName",
+            ColFirstName = "firstName",
+            ColUserName = "userName",
+            ColEmailAddress = "emailAdress",
             ColPassword = "password",
             ColAddress = "address",
             ColCity = "city",
-            ColPostcode = "postcode",
+            ColPostcode = "postCode",
             ColCountry = "country",
             ColBirthdate = "birthdate",
             ColBirthcity = "birthcity",
-            ColPhoneNumber = "phone_number",
-            ColSexe = "sexe";
+            ColPhoneNumber = "phoneNumber",
+            ColSexe = "sexe",
+            ColRole = "role",
+            ColNationality = "nationality";
     
         //We have all our queries here 
         //Create query which creates a database User
         public static readonly string ReqCreate = $@"
         INSERT INTO {TableName}({ColLastName}, {ColFirstName}, {ColUserName},
         {ColEmailAddress},{ColPassword},{ColAddress}, {ColCity}, {ColPostcode},
-        {ColCountry},{ColBirthdate}, {ColBirthcity}, {ColPhoneNumber}, {ColSexe})
+        {ColCountry},{ColBirthdate}, {ColBirthcity}, {ColPhoneNumber}, {ColSexe},
+        {ColRole}, {ColNationality})
         OUTPUT INSERTED.{ColId}
         VALUES(@{ColLastName}, @{ColFirstName},   
-        @{ColUserName}, @{ColEmailAddress} ,@{ColPassword}, @{ColAddress}, @{ColCity}
-        @{ColPostcode}, @{ColCountry}, @{ColBirthdate}, @{ColBirthcity}, @{ColPhoneNumber}, @{ColSexe})";
+        @{ColUserName}, @{ColEmailAddress} ,@{ColPassword}, @{ColAddress}, @{ColCity},
+        @{ColPostcode}, @{ColCountry}, @{ColBirthdate}, @{ColBirthcity},
+        @{ColPhoneNumber}, @{ColSexe}, @{ColRole}, @{ColNationality})";
 
         //This is the one that will send us all the User
         public static readonly string ReqGetAll = $@"

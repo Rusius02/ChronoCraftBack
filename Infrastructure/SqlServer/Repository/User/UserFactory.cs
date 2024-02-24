@@ -8,6 +8,7 @@ namespace Infrastructure.SqlServer.Repository.User
         /*Here we have our class that will load our data from the data table into a new User*/
         public Domain.User CreateFromSqlReader(SqlDataReader reader)
         {
+            
             return new Domain.User()
             {
                 Id = reader.GetInt32(reader.GetOrdinal(UserRepository.ColId)),
@@ -23,7 +24,8 @@ namespace Infrastructure.SqlServer.Repository.User
                 BirthDate = reader.GetDateTime(reader.GetOrdinal(UserRepository.ColBirthdate)),
                 BirthCity = reader.GetString(reader.GetOrdinal(UserRepository.ColBirthcity)),
                 PhoneNumber = reader.GetString(reader.GetOrdinal(UserRepository.ColPhoneNumber)),
-                Sexe = reader.GetString(reader.GetOrdinal(UserRepository.ColSexe))       
+                Sexe = reader.GetString(reader.GetOrdinal(UserRepository.ColSexe)),
+                Nationality = (Nationality)reader.GetInt32(reader.GetOrdinal(UserRepository.ColNationality))
             };
         }
     }

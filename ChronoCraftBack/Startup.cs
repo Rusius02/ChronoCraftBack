@@ -2,7 +2,6 @@
 using System.Text;
 using Application.UseCases.User;
 using Infrastructure;
-using Infrastructure.SqlServer.Repository;
 using Infrastructure.SqlServer.Repository.User;
 using Infrastructure.SqlServer.System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,6 +25,7 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<Database>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

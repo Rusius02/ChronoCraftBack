@@ -1,11 +1,6 @@
-﻿using ContosoUniversity.Models;
-using Domain;
-using Infrastructure;
-using System;
-using System.Diagnostics;
-using System.Linq;
+﻿using Domain;
 
-namespace ContosoUniversity.Data
+namespace Infrastructure
 {
     public static class DbInitializer
     {
@@ -21,7 +16,10 @@ namespace ContosoUniversity.Data
 
             var users = new User[]
             {
-            new User{FirstName="Carson",LastName="Alexander",UserName= "Caal", EmailAdress="Carson.Alexander@hotmail.com", Password="PW$1234", Address="Rue de Bruxelles", City="LLN", PostCode="2000", Country="Belgium", BirthDate=DateTime.Parse("2005-09-01"), BirthCity="LLN", PhoneNumber="0032477889922", Sexe="M",Role="Admin" },
+            new User{FirstName="Carson",LastName="Alexander",UserName= "Caal", EmailAdress="Carson.Alexander@hotmail.com", Password="PW$1234", Address="Rue de Bruxelles", City="LLN", PostCode="2000", Country="Belgium", BirthDate=DateTime.Parse("2005-09-01"), BirthCity="LLN", PhoneNumber="0032477889922", Sexe="M",Role=Role.Admin },
+            new User{FirstName="Carson",LastName="Alexander",UserName= "Caal", EmailAdress="Carson.Alexander@hotmail.com", Password="PW$12345", Address="Rue de Bruxelles", City="LLN", PostCode="2000", Country="Belgium", BirthDate=DateTime.Parse("2005-09-01"), BirthCity="LLN", PhoneNumber="0032477889922", Sexe="M",Role=Role.User },
+            new User{FirstName="Carson",LastName="Alexander",UserName= "Caal", EmailAdress="Carson.Alexander@hotmail.com", Password="PW$123456", Address="Rue de Bruxelles", City="LLN", PostCode="2000", Country="Belgium", BirthDate=DateTime.Parse("2005-09-01"), BirthCity="LLN", PhoneNumber="0032477889922", Sexe="M",Role=Role.Premium },
+            new User{FirstName="Carson",LastName="Alexander",UserName= "Caal", EmailAdress="Carson.Alexander@hotmail.com", Password="PW$123456", Address="Rue de Bruxelles", City="LLN", PostCode="2000", Country="Belgium", BirthDate=DateTime.Parse("2005-09-01"), BirthCity="LLN", PhoneNumber="0032477889922", Sexe="M",Role=Role.Invited }
             };
             foreach (User s in users)
             {
@@ -31,7 +29,7 @@ namespace ContosoUniversity.Data
 
             var plans = new Plan[]
             {
-            new Plan{CourseID=1050,Title="Chemistry",Credits=3},
+            new Plan{Name="Tabata session Legs 01",SchreduledTimes=new List<SchreduledPlan>{ new SchreduledPlan()},Description="This session a focused on cardio hit and full legs exercices"},
             };
             foreach (Plan c in plans)
             {
@@ -41,7 +39,7 @@ namespace ContosoUniversity.Data
 
             var chronos = new Chrono[]
             {
-            new Chrono{StudentID=1,CourseID=1050,Grade=Grade.A},
+            new Chrono{TimeInSecond=45},
             };
             foreach (Chrono e in chronos)
             {

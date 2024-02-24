@@ -24,9 +24,10 @@ namespace Infrastructure
         public DbSet<Chrono> Chronos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("User");
-            modelBuilder.Entity<Plan>().ToTable("Plan");
-            modelBuilder.Entity<Chrono>().ToTable("Chrono");
+            modelBuilder.Entity<User>().ToTable("Users").HasKey(e => e.Id);
+            modelBuilder.Entity<Plan>().ToTable("Plans").HasKey(e => e.Id);
+            modelBuilder.Entity<Chrono>().ToTable("Chronos").HasKey(e => e.Id);
+            modelBuilder.Entity<SchreduledPlan>().ToTable("SchreduledPlans").HasKey(e => e.Id);
         }
     }
 }

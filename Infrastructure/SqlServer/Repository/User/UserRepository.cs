@@ -41,6 +41,8 @@ namespace Infrastructure.SqlServer.Repository.User
             command.Parameters.AddWithValue("@" + ColBirthcity, user.BirthCity);
             command.Parameters.AddWithValue("@" + ColPhoneNumber, user.PhoneNumber);
             command.Parameters.AddWithValue("@" + ColSexe, user.Sexe);
+            command.Parameters.AddWithValue("@" + ColNationality, user.Nationality);
+            command.Parameters.AddWithValue("@" + ColRole, user.Role);
 
 
 

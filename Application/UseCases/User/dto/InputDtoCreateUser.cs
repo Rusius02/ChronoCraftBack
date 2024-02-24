@@ -22,17 +22,7 @@ namespace Application.UseCases.Chrono.dto
         public string PhoneNumber { get; set; }
         public string Sexe { get; set; }
         public string Role { get; set; }
-        internal Nationality Nationality { get; set; }
-    }
-
-    enum Nationality
-    {
-        Belgian,
-        French,
-        Britain,
-        American,
-        Argentin,
-        Brasilian
+        public Nationality Nationality { get; set; }
     }
 }
 

@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SqlServer\Repository\Chrono\" />
     <Folder Include="SqlServer\Repository\ChronoPlan\" />
     <Folder Include="SqlServer\Repository\PlanUser\" />
     <Folder Include="SqlServer\Repository\Plan\" />

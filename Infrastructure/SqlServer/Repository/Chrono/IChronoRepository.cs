@@ -13,8 +13,6 @@ namespace Infrastructure.SqlServer.Repository.Chrono
 
         List<Domain.Chrono> GetAll();
 
-        Domain.Chrono GetUser(Domain.Chrono chronos);
-
         bool Delete(Domain.Chrono chronos);
 
         bool Update(Domain.Chrono chronos);

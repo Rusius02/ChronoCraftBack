@@ -5,10 +5,11 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure.SqlServer.Utils;
 
 namespace Infrastructure.SqlServer.Repository.Chrono
 {
-    public class ChronoFactory
+    public class ChronoFactory : IDomainFactory<Domain.Chrono>
     {
         public Domain.Chrono CreateFromSqlReader(SqlDataReader reader)
         {
